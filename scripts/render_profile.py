@@ -44,6 +44,7 @@ THEMES = {
 # key: (file, prefix of the glyph ids in <defs>)
 FONT_FILES = {
     "serif": ("dm_serif_display_regular.ttf", "d"),
+    "italic": ("dm_serif_display_italic.ttf", "i"),
     "regular": ("dm_sans_regular.ttf", "r"),
     "medium": ("dm_sans_medium.ttf", "m"),
     "semibold": ("dm_sans_semibold.ttf", "b"),
@@ -54,35 +55,39 @@ FONT_FILES = {
 
 @dataclass
 class Project:
+    """A product name follows the design system: a suffix in italics, or else the dot of the wordmark."""
     slug: str
     kind: str
     title: str
     text: str
     tags: list[str]
     meta: str
-    status: str | None = None
+    suffix: str | None = None   # "Monitor" in "Image Update Monitor"
+    dot: bool = False           # "Cron Jobs." for names without a suffix
+    status: str | None = None   # a maturity like "Prototype": a neutral label, never a status colour
 
 
 PROJECTS = [
     Project("cockpit-cronjobs", "Cockpit add-on", "Cron Jobs",
             "Every cron job and systemd timer on a server in one place. Safe root crontab "
             "edits, run history, run now, and conversion to systemd timers.",
-            ["Cockpit", "cron", "systemd", "Linux"], "JavaScript · Apache-2.0"),
-    Project("cockpit-image-update-monitor", "Cockpit add-on", "Image Update Monitor",
+            ["Cockpit", "cron", "systemd", "Linux"], "JavaScript · Apache-2.0", dot=True),
+    Project("cockpit-image-update-monitor", "Cockpit add-on", "Image Update",
             "Configured, running and newest version of every Docker container, with "
             "in-place updates, database dumps and rollback at the push of a button.",
-            ["Cockpit", "Docker", "Compose", "Diun"], "JavaScript · Apache-2.0"),
+            ["Cockpit", "Docker", "Compose", "Diun"], "JavaScript · Apache-2.0", suffix="Monitor"),
     Project("stellwerk", "Desk display", "Stellwerk",
             "A signal box for your AI agents: a desk display that shows every Claude Code "
             "session and lets you answer its permission requests.",
-            ["Claude Code", "Windows", "Touch"], "TypeScript · Apache-2.0"),
-    Project("openauto-ai", "Android app", "OpenAuto AI",
+            ["Claude Code", "Windows", "Touch"], "TypeScript · Apache-2.0", dot=True),
+    Project("openauto-ai", "Android app", "OpenAuto",
             "Voice conversations with OpenAI and Claude on your own API keys. Chats and "
             "keys stay encrypted on the device.",
             ["Android", "Kotlin", "Jetpack Compose", "Android Auto"], "Kotlin · Apache-2.0",
-            status="Prototype"),
+            suffix="AI", status="Prototype"),
 ]
 
+# A domain, not a product name: no suffix, no dot.
 PACKAGES = Project("packages", "Package repository", "packages.azentrius.de",
                    "APT and RPM repository for the Cockpit add-ons, so Cockpit lists them under Applications.",
                    ["APT", "RPM", "AppStream", "Cockpit"], "Python · Apache-2.0")
@@ -244,26 +249,39 @@ def heading(t, eyebrow: str, title: str) -> Svg:
     return s
 
 
+def product_name(s: Svg, x, y, p: Project, size, t) -> float:
+    """Draw a product name as the design system styles it and return its width."""
+    if p.dot:
+        return s.text(x, y, p.title + ".", "serif", size, t["text"], spans=[(len(p.title), t["signature"])])
+    w = s.text(x, y, p.title + (" " if p.suffix else ""), "serif", size, t["text"])
+    if p.suffix:
+        w += s.text(x + w, y, p.suffix, "italic", size, t["signature"])
+    return w
+
+
 def card(t, p: Project, side: str) -> Svg:
     """side: 'left' or 'right' for the two-column grid, 'wide' for a full row."""
     wide = side == "wide"
-    w, h = (1280, 262) if wide else (640, 340)
+    w, h = (1280, 278) if wide else (640, 340)
     # The 24 px gap to the neighbouring cards is part of the image and stays transparent:
     # half of it on the inner side, all of it below a card of the two-column grid.
     gap = 0 if wide else 12
     cx = gap if side == "right" else 0
     cw = w - gap
-    pad = 40
-    s = Svg(w, h if wide else h + 2 * gap, f"{p.title}: {p.text}")
+    pad = 48  # space-2xl, as for project cards
+    full_name = " ".join(filter(None, [p.title, p.suffix]))
+    s = Svg(w, h if wide else h + 2 * gap, f"{full_name}: {p.text}")
     s.rect(cx + 0.5, 0.5, cw - 1, h - 1, rx=24, fill=t["card"], stroke=t["line"])
     x = cx + pad
-    s.text(x, 64, p.kind.upper(), "medium", 15, t["signature"], tracking=15 * 0.16)
-    s.text(cx + cw - pad, 64, p.meta, "regular", 17, t["subtle"], anchor="end")
-    title_w = s.text(x, 118, p.title, "serif", 42, t["text"])
+    s.text(x, 72, p.kind.upper(), "medium", 15, t["signature"], tracking=15 * 0.16)
+    s.text(cx + cw - pad, 72, p.meta, "regular", 17, t["subtle"], anchor="end")
+    title_w = product_name(s, x, 126, p, 42, t)
     if p.status:
-        s.pill(x + title_w + 16, 104, p.status, "regular", 15, 30, 12, "none", t["signature"], stroke=t["signature"])
-    for i, line in enumerate(wrap(p.text, FONTS["regular"], 21, cw - 2 * pad)):
-        s.text(x, 162 + i * 31, line, "regular", 21, t["subtle"])
+        s.pill(x + title_w + 16, 112, p.status, "regular", 15, 32, 12, t["tint"], t["on_tint"])
+    lines = wrap(p.text, FONTS["regular"], 21, cw - 2 * pad)
+    assert len(lines) <= (1 if wide else 3), (p.slug, lines)
+    for i, line in enumerate(lines):
+        s.text(x, 170 + i * 31, line, "regular", 21, t["subtle"])
     tx = x
     for tag in p.tags:
         tx += s.pill(tx, h - pad - 16, tag, "regular", 15, 32, 12, t["tint"], t["on_tint"]) + 8
