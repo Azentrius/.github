@@ -85,12 +85,10 @@ PROJECTS = [
             "keys stay encrypted on the device.",
             ["Android", "Kotlin", "Jetpack Compose", "Android Auto"], "Kotlin · Apache-2.0",
             dot=True, status="Prototype"),
-    # The theme itself is called Azentrius, like the wordmark in the banner, so the card
-    # names where it runs instead. A host, not a product name: no suffix, no dot.
-    Project("home-assistant-theme", "Theme", "Home Assistant",
+    Project("home-assistant-theme", "Home Assistant", "Azentrius",
             "Ink, paper and gold for the whole Home Assistant interface, light and dark as "
             "set in your profile. Your own instance serves the fonts.",
-            ["Home Assistant", "HACS", "DM Sans"], "YAML · Apache-2.0"),
+            ["Home Assistant", "HACS", "DM Sans"], "YAML · Apache-2.0", suffix="Theme"),
 ]
 
 # A domain, not a product name: no suffix, no dot.
