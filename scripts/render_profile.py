@@ -78,13 +78,19 @@ PROJECTS = [
             ["Cockpit", "Docker", "Compose", "Diun"], "JavaScript · Apache-2.0", suffix="Monitor"),
     Project("stellwerk", "Desk display", "Stellwerk",
             "A signal box for your AI agents: a desk display that shows every Claude Code "
-            "session and lets you answer its permission requests.",
-            ["Claude Code", "Windows", "Touch"], "TypeScript · Apache-2.0", dot=True),
-    Project("openauto-ai", "Android app", "OpenAuto",
+            "and Codex session and lets you answer their permission requests.",
+            ["Claude Code", "Codex", "Windows", "Touch"], "TypeScript · Apache-2.0", dot=True),
+    Project("lautwerk", "Android app", "Lautwerk",
             "Voice conversations with OpenAI and Claude on your own API keys. Chats and "
             "keys stay encrypted on the device.",
             ["Android", "Kotlin", "Jetpack Compose", "Android Auto"], "Kotlin · Apache-2.0",
-            suffix="AI", status="Prototype"),
+            dot=True, status="Prototype"),
+    # The theme itself is called Azentrius, like the wordmark in the banner, so the card
+    # names where it runs instead. A host, not a product name: no suffix, no dot.
+    Project("home-assistant-theme", "Theme", "Home Assistant",
+            "Ink, paper and gold for the whole Home Assistant interface, light and dark as "
+            "set in your profile. Your own instance serves the fonts.",
+            ["Home Assistant", "HACS", "DM Sans"], "YAML · Apache-2.0"),
 ]
 
 # A domain, not a product name: no suffix, no dot.
@@ -330,9 +336,15 @@ def build(fonts_dir: pathlib.Path):
             "values": values(t),
             "button-website": button(t, "Visit azentrius.de", primary=True, margin=12),
             "button-contact": button(t, "Contact us", primary=False),
-            f"card-{PACKAGES.slug}": card(t, PACKAGES, "wide"),
         }
-        for i, p in enumerate(PROJECTS):
+        # packages.azentrius.de fills the last row: next to the last project when their
+        # number is odd, as a row of its own when it is even.
+        grid = list(PROJECTS)
+        if len(grid) % 2:
+            grid.append(PACKAGES)
+        else:
+            graphics[f"card-{PACKAGES.slug}"] = card(t, PACKAGES, "wide")
+        for i, p in enumerate(grid):
             graphics[f"card-{p.slug}"] = card(t, p, "left" if i % 2 == 0 else "right")
         for name, svg in graphics.items():
             (OUT / f"{name}-{theme}.svg").write_text(svg.render(), encoding="utf-8", newline="\n")
