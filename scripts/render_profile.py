@@ -92,7 +92,7 @@ PROJECTS = [
 ]
 
 # A domain, not a product name: no suffix, no dot.
-PACKAGES = Project("packages", "Package repository", "packages.azentrius.de",
+PACKAGES = Project("packages", "Package repository", "packages.azentrius.com",
                    "APT and RPM repository for the Cockpit add-ons, so Cockpit lists them under Applications.",
                    ["APT", "RPM", "AppStream", "Cockpit"], "Python · Apache-2.0")
 
@@ -233,7 +233,7 @@ def banner(t) -> Svg:
     s = Svg(1280, 480, "Azentrius. Software you own.")
     s.rect(0.5, 0.5, 1279, 479, rx=24, fill=t["page"], stroke=t["line"])
     s.text(80, 92, "Azentrius.", "serif", 40, t["text"], spans=[(9, t["signature"])])
-    s.text(1200, 88, "azentrius.de", "regular", 19, t["subtle"], anchor="end")
+    s.text(1200, 88, "azentrius.com", "regular", 19, t["subtle"], anchor="end")
     s.line(0.5, 136, 1279.5, 136, t["line"])
     s.text(80, 204, "DIGITAL SOVEREIGNTY", "medium", 17, t["signature"], tracking=17 * 0.16)
     s.text(80, 300, "Software you own.", "serif", 96, t["text"], spans=[(16, t["signature"])])
@@ -332,10 +332,10 @@ def build(fonts_dir: pathlib.Path):
             "heading-projects": heading(t, "Projects", "Current projects"),
             "heading-about": heading(t, "Organisation", "What is Azentrius?"),
             "values": values(t),
-            "button-website": button(t, "Visit azentrius.de", primary=True, margin=12),
+            "button-website": button(t, "Visit azentrius.com", primary=True, margin=12),
             "button-contact": button(t, "Contact us", primary=False),
         }
-        # packages.azentrius.de fills the last row: next to the last project when their
+        # packages.azentrius.com fills the last row: next to the last project when their
         # number is odd, as a row of its own when it is even.
         grid = list(PROJECTS)
         if len(grid) % 2:
