@@ -1,49 +1,45 @@
 <p>
-<a href="https://azentrius.de">
+<a href="https://azentrius.com">
 <picture>
 <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/banner-dark.svg">
-<img alt="Azentrius. Digital sovereignty: software you own. EU infrastructure, 100 % self-hosted, GDPR compliant." src="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/banner-light.svg" width="100%">
+<img alt="Azentrius. Digital sovereignty: software you own. Apache-2.0: open source, every project. EU: our servers and analytics. Transparent: dependencies named per project." src="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/banner-light.svg" width="100%">
 </picture>
 </a>
 </p>
 
-Azentrius builds privacy-first software on European infrastructure. No external control planes, no SaaS dependencies. Just tools that truly belong to you.
+Open-source tools for your own infrastructure and devices. Local control, transparent dependencies: each project's page says what it needs and what it talks to.
 
-<p>
-<a href="https://azentrius.de"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/button-website-dark.svg"><img alt="Visit azentrius.de" src="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/button-website-light.svg" height="48"></picture></a><a href="mailto:support@azentrius.de"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/button-contact-dark.svg"><img alt="Contact us" src="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/button-contact-light.svg" height="48"></picture></a>
-</p>
+**[azentrius.com](https://azentrius.com)** · [support@azentrius.com](mailto:support@azentrius.com)
 
-<br>
+## Projects
 
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/heading-projects-dark.svg">
-<img alt="Projects: Current projects" src="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/heading-projects-light.svg" width="100%">
-</picture>
+All projects are open source under the Apache License 2.0.
 
-All projects are open source under the Apache 2.0 license.
+**[Cron Jobs](https://github.com/Azentrius/cockpit-cronjobs)** · Cockpit add-on<br>
+Every cron job and systemd timer on a server in one place: safe crontab edits, the result of every run, run now, and conversion to systemd timers. [Project page](https://azentrius.com/cockpit-cronjobs/)
 
-<p>
-<a href="https://github.com/Azentrius/cockpit-cronjobs"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/card-cockpit-cronjobs-dark.svg"><img alt="Cron Jobs, a Cockpit add-on: every cron job and systemd timer on a server in one place." src="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/card-cockpit-cronjobs-light.svg" width="49.9%" align="top"></picture></a><a href="https://github.com/Azentrius/cockpit-image-update-monitor"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/card-cockpit-image-update-monitor-dark.svg"><img alt="Image Update Monitor, a Cockpit add-on: configured, running and newest version of every Docker container." src="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/card-cockpit-image-update-monitor-light.svg" width="49.9%" align="top"></picture></a>
-<a href="https://github.com/Azentrius/stellwerk"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/card-stellwerk-dark.svg"><img alt="Stellwerk, a desk display: every Claude Code and Codex session and their permission requests." src="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/card-stellwerk-light.svg" width="49.9%" align="top"></picture></a><a href="https://github.com/Azentrius/lautwerk"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/card-lautwerk-dark.svg"><img alt="Lautwerk, an Android app prototype: voice conversations on your own API keys." src="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/card-lautwerk-light.svg" width="49.9%" align="top"></picture></a>
-<a href="https://github.com/Azentrius/home-assistant-theme"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/card-home-assistant-theme-dark.svg"><img alt="Azentrius Theme, a Home Assistant theme: ink, paper and gold for the whole interface, light and dark." src="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/card-home-assistant-theme-light.svg" width="49.9%" align="top"></picture></a><a href="https://github.com/Azentrius/packages"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/card-packages-dark.svg"><img alt="packages.azentrius.de: APT and RPM repository for the Cockpit add-ons." src="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/card-packages-light.svg" width="49.9%" align="top"></picture></a>
-</p>
+**[Image Update Monitor](https://github.com/Azentrius/cockpit-image-update-monitor)** · Cockpit add-on<br>
+Configured, running and newest version of every Docker container, with updates that dump the database first and a rollback at a click. [Project page](https://azentrius.com/cockpit-image-update-monitor/)
 
-<br>
+**[Stellwerk](https://github.com/Azentrius/stellwerk)** · Desk display<br>
+Every Claude Code and Codex session on a wide second screen, with their permission requests to allow or deny right there. Runs on your machine only. [Project page](https://azentrius.com/stellwerk/)
 
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/heading-about-dark.svg">
-<img alt="Organisation: What is Azentrius?" src="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/heading-about-light.svg" width="100%">
-</picture>
+**[Lautwerk](https://github.com/Azentrius/lautwerk)** · Android app, prototype<br>
+Voice conversations with Claude and OpenAI on your own API keys; chats and keys stay encrypted on the phone. Talks to the provider you choose. [Project page](https://azentrius.com/lautwerk/)
 
-Azentrius is the organisational framework for software projects sharing a common foundation: digital self-determination. We build tools that give people and organisations full control over their data.
+**[Azentrius Theme](https://github.com/Azentrius/home-assistant-theme)** · Home Assistant<br>
+Ink, paper and gold for Home Assistant, light and dark as your profile says. Your own instance serves the fonts. [Project page](https://azentrius.com/home-assistant-theme/)
 
-Our entire infrastructure runs on European servers. No US cloud providers, no proprietary control planes: complete sovereignty from hardware to application layer.
+**[packages.azentrius.com](https://packages.azentrius.com)** · Package repository ([source](https://github.com/Azentrius/packages))<br>
+APT and RPM repository for the Cockpit add-ons, so Cockpit lists them under Applications. Every package is checked against the build provenance of its own repository.
 
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/values-dark.svg">
-<img alt="Privacy first. Sovereignty. European roots. Openness." src="https://raw.githubusercontent.com/Azentrius/.github/main/profile/assets/values-light.svg" width="100%">
-</picture>
+## What is Azentrius?
 
-<br>
+Azentrius is the framework for software projects with one aim: tools that people and organisations run themselves, with their data under their own control. Where a project needs an outside service, such as an AI provider, its page says so.
 
-<sub>[azentrius.de](https://azentrius.de) · [support@azentrius.de](mailto:support@azentrius.de) · [Legal notice](https://azentrius.de/impressum.html) · [Privacy policy](https://azentrius.de/datenschutz.html) · A project by [Stefan Popp](https://stefanpopp.com/)</sub>
+- **Privacy first.** Privacy is not a feature, it is the foundation of every decision.
+- **Control.** The tools run on your servers and devices.
+- **European roots.** Our website, package repository and analytics run on our own servers in the EU.
+- **Openness.** Open architectures, auditable code, no black boxes.
+
+<sub>[Legal notice](https://azentrius.com/legal-notice/) · [Privacy policy](https://azentrius.com/privacy/) · A project by [Stefan Popp](https://stefanpopp.com/)</sub>
