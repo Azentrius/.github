@@ -4,21 +4,21 @@ The organisation profile of Azentrius, shown at [github.com/Azentrius](https://g
 
 | Path | Content |
 |---|---|
-| `profile/README.md` | The profile page itself |
-| `profile/assets/` | Its graphics, each in a light and a dark version; GitHub shows the one that matches the viewer's theme |
-| `scripts/render_profile.py` | Draws these graphics in the Azentrius design: ink, paper and gold, DM Serif Display and DM Sans |
+| `profile/README.md` | The profile page itself, in Markdown |
+| `profile/assets/` | The banner, in a light and a dark version; GitHub shows the one that matches the viewer's theme |
+| `scripts/render_profile.py` | Draws the banner in the Azentrius design: ink, paper and gold, DM Serif Display and DM Sans |
 
-## Changing the graphics
+## Texts and the banner
 
-The texts of the banner, the project cards and the principles are at the top of `scripts/render_profile.py`, the colours of both themes right below. After a change, render all graphics again:
+Projects, headings and values are Markdown text in `profile/README.md`, so they stay readable on a phone and reach screen readers as text. A new project gets an entry there, with a link to its repository and its page on azentrius.com. Product names are written plainly; the styled form (Image Update *Monitor*, Cron Jobs.) belongs to graphics and web pages.
+
+The banner is the only graphic. Its texts are at the top of `scripts/render_profile.py`, the colours of both themes right below. After a change, render it again:
 
 ```sh
 pip install fonttools uharfbuzz
 python scripts/render_profile.py --fonts <design-system>/android/res/font
 ```
 
-The fonts are the TTF files of the Azentrius design system. The script turns all text into outlines, because GitHub shows SVG files as images and images cannot load web fonts.
+The fonts are the TTF files of the Azentrius design system. The script turns all text into outlines, because GitHub shows SVG files as images and images cannot load web fonts. The banner's alt text in `profile/README.md` says everything the banner says.
 
-A new project needs an entry in `PROJECTS` and a card link in `profile/README.md`. Product names follow the design system: a name with a suffix sets it with `suffix="…"` (shown in italics, as in Image Update *Monitor*), a name without one sets `dot=True` (shown with the gold dot, as in Cron Jobs.). A maturity like "Prototype" goes in `status` and appears as a neutral label. Alt texts name the product in plain text. Cards in the two-column grid alternate between left and right, so a new card goes at the end of the list or the order in the README changes with it. The card of packages.azentrius.com fills the last row: next to the last project when their number is odd, as a row of its own (`width="99.8%"`) when it is even. A new project therefore also moves that card or changes its width in `profile/README.md`.
-
-`profile/README.md` links the images by their absolute URLs on `main`. Changes show on the profile once they are on `main`.
+`profile/README.md` links the banner by its absolute URL on `main`. Changes show on the profile once they are on `main`.
