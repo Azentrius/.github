@@ -21,11 +21,23 @@ Every cron job and systemd timer on a server in one place: safe crontab edits, t
 **[Image Update Monitor](https://github.com/Azentrius/cockpit-image-update-monitor)** · Cockpit add-on<br>
 Configured, running and newest version of every Docker container, with updates that dump the database first and a rollback at a click. [Project page](https://azentrius.com/cockpit-image-update-monitor/)
 
+**[Update Gaps](https://github.com/Azentrius/cockpit-update-gaps)** · Cockpit add-on<br>
+The updates a server misses although Software Updates lists none, and why: held packages, Ubuntu Pro fixes, pending restarts, stale package lists. For Debian and Ubuntu. [Project page](https://azentrius.com/cockpit-update-gaps/)
+
+**[Security Monitor](https://github.com/Azentrius/cockpit-security-monitor)** · Cockpit add-on<br>
+Per port, whether the internet, the VPN or the private network reaches it and which rule decides; who logs in; what weakens the containers. For Debian and Ubuntu. [Project page](https://azentrius.com/cockpit-security-monitor/)
+
+**[Status Board](https://github.com/Azentrius/cockpit-status-board)** · Cockpit page<br>
+The state of the Azentrius add-ons on every host of Cockpit's host switcher, from one central host: one row per host, one tile per add-on. [Project page](https://azentrius.com/cockpit-status-board/)
+
 **[Stellwerk](https://github.com/Azentrius/stellwerk)** · Desk display<br>
 Every Claude Code and Codex session on a wide second screen, with their permission requests to allow or deny right there. Runs on your machine only. [Project page](https://azentrius.com/stellwerk/)
 
 **[Lautwerk](https://github.com/Azentrius/lautwerk)** · Android app, prototype<br>
 Voice conversations with Claude and OpenAI on your own API keys; chats and keys stay encrypted on the phone. Talks to the provider you choose. [Project page](https://azentrius.com/lautwerk/)
+
+**[Sharewerk](https://github.com/Azentrius/sharewerk)** · Self-hosted web app<br>
+Share an Instagram or Facebook post from your Android phone and get it back as a pack to share: images, video stills, transcript and caption. Runs on your own server. [Project page](https://azentrius.com/sharewerk/)
 
 **[Azentrius Theme](https://github.com/Azentrius/home-assistant-theme)** · Home Assistant<br>
 Ink, paper and gold for Home Assistant, light and dark as your profile says. Your own instance serves the fonts. [Project page](https://azentrius.com/home-assistant-theme/)

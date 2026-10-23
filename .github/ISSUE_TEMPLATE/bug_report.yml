@@ -1,0 +1,64 @@
+# SPDX-License-Identifier: Apache-2.0
+name: Bug report
+description: Something does not work as the README describes.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Security problems do not belong here.** Report them privately as described in the
+        repository's SECURITY.md.
+
+        This issue is public. Logs and configuration often hold passwords, tokens, host names and
+        paths: remove them and any other private data from everything you paste.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The version of the project you use, as its page, package or release shows it.
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: System
+      description: Operating system and version, and where it matters the host (Cockpit, Home Assistant, Android, browser) and its version.
+      placeholder: "Ubuntu 24.04, Cockpit 316"
+    validations:
+      required: true
+  - type: textarea
+    id: happened
+    attributes:
+      label: What happened
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Relevant output
+      description: >-
+        For example the browser console or a log.
+        **Before pasting, remove passwords, tokens, host names, IP addresses and any other private data.**
+      render: shell
+  - type: checkboxes
+    id: no-secrets
+    attributes:
+      label: Private data
+      options:
+        - label: I have removed passwords, tokens and any other secrets or private data from everything above.
+          required: true

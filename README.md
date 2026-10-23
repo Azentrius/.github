@@ -7,6 +7,7 @@ The organisation profile of Azentrius, shown at [github.com/Azentrius](https://g
 | `profile/README.md` | The profile page itself, in Markdown |
 | `profile/assets/` | The banner, in a light and a dark version; GitHub shows the one that matches the viewer's theme |
 | `scripts/render_profile.py` | Draws the banner in the Azentrius design: ink, paper and gold, DM Serif Display and DM Sans |
+| `CONTRIBUTING.md`, `SECURITY.md`, `.github/ISSUE_TEMPLATE/`, `.github/pull_request_template.md` | Defaults for every repository of the organisation that has none of its own |
 
 ## Texts and the banner
 
