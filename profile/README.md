@@ -30,6 +30,9 @@ Per port, whether the internet, the VPN or the private network reaches it and wh
 **[Status Board](https://github.com/Azentrius/cockpit-status-board)** · Cockpit page<br>
 The state of the Azentrius add-ons on every host of Cockpit's host switcher, from one central host: one row per host, one tile per add-on. [Project page](https://azentrius.com/cockpit-status-board/)
 
+**[Host Settings](https://github.com/Azentrius/cockpit-host-settings)** · Cockpit add-on<br>
+A message through ntfy, e-mail or both when an Azentrius add-on on the server needs attention. It shows what the ntfy server needs and checks that the topic is closed to anyone without a login. [Project page](https://azentrius.com/cockpit-host-settings/)
+
 **[Stellwerk](https://github.com/Azentrius/stellwerk)** · Desk display<br>
 Every Claude Code and Codex session on a wide second screen, with their permission requests to allow or deny right there. Runs on your machine only. [Project page](https://azentrius.com/stellwerk/)
 
